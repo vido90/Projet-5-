@@ -45,7 +45,7 @@ arrow_left.addEventListener("click", () => {
 	}
 	image.src = imagePath+slides[position].image
 	const tagLine = document.createElement("tagline")
-	tagline.innerHTML = slides[position].tagLine
+	tagLine.innerHTML = slides[position].tagLine
 	displayDots (position)
 	console.log("click gauche")
 })
@@ -65,18 +65,21 @@ arrow_right.addEventListener("click", () => {
 })
 console.log(arrow_right)
 
+for (let i = 0; i < slides.length; i++) {
+	const dot = document.createElement("div");
+	dot.setAttribute("class", "dot");
+	dotsElements.appendChild(dot); /*conteneur de points*/
+}
+
 let displayDots = (index) => {
-	dotsElements.innerHTML = ""; /*Cela permet de réinitialiser les points à chaque fois que la fonction displayDots est appelée.*/
 
 	for (let i = 0; i < slides.length; i++) {
-		const dot = document.createElement("div");
-		dot.setAttribute("class", "dot");
-
 		if (index === i) {
-			dot.classList.add("dot_selected"); /*utilisée pour styliser le point actif dans le carrousel*/
+			dotsElements.getElementsByTagName("div")[i].classList.add("dot_selected");
 		  }
-	  
-		  dotsElements.appendChild(dot); /*conteneur de points*/
+		  else {
+			dotsElements.getElementsByTagName("div")[i].className = "dot";
+		  }
 }
 }
 
