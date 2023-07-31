@@ -44,9 +44,8 @@ arrow_left.addEventListener("click", () => {
 	if (position < 0) {
 		position = slides.length -1 /*implémenter un défilement circulaires des slides*/
 	}
-	image.src = imagePath+slides[position].image /* met à jour l'image affichée dans le caroussel */
-	const tagLine = document.createElement("tagline")
-	tagLine.innerHTML = slides[position].tagLine /* met à jour le contenu affiché dans le caroussel */
+	image.src = imagePath+slides[position].image /* met à jour l'image affichée dans le caroussel */ 
+	p.innerHTML = slides[position].tagLine /* met à jour le contenu affiché dans le caroussel */
 	displayDots (position) /*parcourt tous les points de navigation*/
 	console.log("click gauche")
 })
@@ -59,8 +58,7 @@ arrow_right.addEventListener("click", () => {
 		position = 0
 	}
 	image.src = imagePath+slides[position].image
-	const tagLine = document.createElement("tagline")
-	tagLine.innerHTML = slides[position].tagLine
+	p.innerHTML = slides[position].tagLine
 	displayDots (position)
 	console.log("click droit")
 })
